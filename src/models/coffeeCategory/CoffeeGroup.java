@@ -40,7 +40,6 @@ public abstract class CoffeeGroup {
         this.coffeeBeanPrice = coffeeBeanPrice;
     }
 
-
     @Override
     public String toString() {
         return "CoffeeGroup{" +
