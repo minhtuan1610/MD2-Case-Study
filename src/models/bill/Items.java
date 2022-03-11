@@ -4,8 +4,8 @@ import models.coffeeCategory.CoffeeGroup;
 
 public class Items {
     private CoffeeGroup coffeeGroup;    //  lay ten cua item
-    private double amount;              //  lay so luong cua tung item
-    private double shot;                //  lay so luong shot cua tung item
+    private double amount;              //  lay so luong cua tung loai coffee
+    private double shot;                //  lay so luong shot tuong ung tung loai coffee
 
     public Items() {
     }
