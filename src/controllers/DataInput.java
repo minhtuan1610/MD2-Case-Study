@@ -2,7 +2,10 @@ package controllers;
 
 import java.util.Scanner;
 
-public class dataInput {
+public class DataInput {
+    public DataInput() {
+    }
+
     public double getAmountOfRoastedCoffee() {
         Scanner inputAmount = new Scanner(System.in);
         double amountRoastedCoffee;
@@ -10,7 +13,7 @@ public class dataInput {
         return amountRoastedCoffee;
     }
 
-    public int getAmountOfCoffeeShot() {
+    public int getNumberOfCoffeeShot() {
         Scanner inputCoffeeShot = new Scanner(System.in);
         int amountCoffeeShot;
         amountCoffeeShot = inputCoffeeShot.nextInt();

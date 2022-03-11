@@ -7,6 +7,10 @@ public class BeanQuality {
     public BeanQuality() {
     }
 
+    public BeanQuality(String quality) {
+        this.quality = quality;
+    }
+
     public String getQuality() {
         return quality;
     }

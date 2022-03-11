@@ -2,7 +2,7 @@ package models.coffeeCategory;
 
 import models.qualityOfBean.BeanQuality;
 
-public abstract class CoffeeGroup {
+public class CoffeeGroup {
     private String name;
     private BeanQuality quality;
     private double coffeeBeanPrice;
