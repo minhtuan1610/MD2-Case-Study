@@ -1,18 +1,19 @@
 package models.bill;
 
-import controllers.DataInput;
 import models.coffeeCategory.CoffeeGroup;
 
 public class Items {
     private CoffeeGroup coffeeGroup;    //  lay ten cua item
-    private double amount;        //  lay so luong cua tung item
+    private double amount;              //  lay so luong cua tung item
+    private double shot;                //  lay so luong shot cua tung item
 
     public Items() {
     }
 
-    public Items(CoffeeGroup coffeeGroup, double amount) {
+    public Items(CoffeeGroup coffeeGroup, double amount, double shot) {
         this.coffeeGroup = coffeeGroup;
         this.amount = amount;
+        this.shot = shot;
     }
 
     public CoffeeGroup getCoffeeGroup() {
@@ -39,7 +40,7 @@ public class Items {
 
     public double getPriceByCoffeeShot() {
         double coffeeShotPrice;
-        coffeeShotPrice = amount * coffeeGroup.getQuality().getPricePerShot();
+        coffeeShotPrice = shot * coffeeGroup.getQuality().getPricePerShot();
         return coffeeShotPrice;
     }
 }
