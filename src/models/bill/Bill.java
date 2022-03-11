@@ -10,6 +10,22 @@ public class Bill {
         this.items = items;
     }
 
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
+
+    public Items getItems() {
+        return items;
+    }
+
+    public void setItems(Items items) {
+        this.items = items;
+    }
+
     public double getItemsPrice() {
         double total;
         total = items.getPriceByRoastedCoffee() + items.getPriceByCoffeeShot();
