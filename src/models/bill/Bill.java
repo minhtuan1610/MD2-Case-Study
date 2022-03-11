@@ -6,6 +6,9 @@ public class Bill {
     private LocalDate localDate;
     private Items items;
 
+    public Bill() {
+    }
+
     public Bill(Items items) {
         this.items = items;
     }
