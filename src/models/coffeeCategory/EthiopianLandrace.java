@@ -6,8 +6,8 @@ public class EthiopianLandrace extends CoffeeGroup {
     public EthiopianLandrace() {
     }
 
-    public EthiopianLandrace(String name, BeanQuality quality, double coffeeBeanPrice) {
-        super(name, quality, coffeeBeanPrice);
+    public EthiopianLandrace(String name, BeanQuality quality) {
+        super(name, quality);
     }
 
     @Override

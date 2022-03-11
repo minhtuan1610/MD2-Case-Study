@@ -19,13 +19,13 @@ public class MoneyPayable {
 
     public double priceByRoastedCoffee() {
         double roastedCoffeePrice;
-        roastedCoffeePrice = dataInput.getAmountOfRoastedCoffee() * coffeeGroup.getCoffeeBeanPrice();
+        roastedCoffeePrice = dataInput.getAmountOfRoastedCoffee() * beanQuality.getPriceOfRoastedCoffee();
         return roastedCoffeePrice;
     }
 
     public double priceByCoffeeShot() {
         double coffeeShotPrice;
-        coffeeShotPrice = dataInput.getNumberOfCoffeeShot() * beanQuality.getPriceByQualityPerShot();
+        coffeeShotPrice = dataInput.getNumberOfCoffeeShot() * beanQuality.getPricePerShot();
         return coffeeShotPrice;
     }
 }

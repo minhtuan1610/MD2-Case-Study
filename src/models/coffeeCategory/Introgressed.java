@@ -6,8 +6,8 @@ public class Introgressed extends CoffeeGroup {
     public Introgressed() {
     }
 
-    public Introgressed(String name, BeanQuality quality, double coffeeBeanPrice) {
-        super(name, quality, coffeeBeanPrice);
+    public Introgressed(String name, BeanQuality quality) {
+        super(name, quality);
     }
 
     @Override

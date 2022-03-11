@@ -6,8 +6,8 @@ public class F1Hybrids extends CoffeeGroup {
     public F1Hybrids() {
     }
 
-    public F1Hybrids(String name, BeanQuality quality, double coffeeBeanPrice) {
-        super(name, quality, coffeeBeanPrice);
+    public F1Hybrids(String name, BeanQuality quality) {
+        super(name, quality);
     }
 
     @Override

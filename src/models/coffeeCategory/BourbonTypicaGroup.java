@@ -6,8 +6,8 @@ public class BourbonTypicaGroup extends CoffeeGroup {
     public BourbonTypicaGroup() {
     }
 
-    public BourbonTypicaGroup(String name, BeanQuality quality, double coffeeBeanPrice) {
-        super(name, quality, coffeeBeanPrice);
+    public BourbonTypicaGroup(String name, BeanQuality quality) {
+        super(name, quality);
     }
 
     @Override

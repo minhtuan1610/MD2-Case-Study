@@ -2,7 +2,8 @@ package models.qualityOfBean;
 
 public class BeanQuality {
     private String quality;
-    private double priceByQualityPerShot;
+    private double pricePerShot;
+    private double priceOfRoastedCoffee;
 
     public BeanQuality() {
     }
@@ -19,18 +20,27 @@ public class BeanQuality {
         this.quality = quality;
     }
 
-    public double getPriceByQualityPerShot() {
-        return priceByQualityPerShot;
+    public double getPricePerShot() {
+        return pricePerShot;
     }
 
-    public void setPriceByQualityPerShot(double priceByQualityPerShot) {
-        this.priceByQualityPerShot = priceByQualityPerShot;
+    public void setPricePerShot(double pricePerShot) {
+        this.pricePerShot = pricePerShot;
+    }
+
+    public double getPriceOfRoastedCoffee() {
+        return priceOfRoastedCoffee;
+    }
+
+    public void setPriceOfRoastedCoffee(double priceOfRoastedCoffee) {
+        this.priceOfRoastedCoffee = priceOfRoastedCoffee;
     }
 
     @Override
     public String toString() {
         return "BeanQuality{" +
                 "quality='" + quality + '\'' +
+                ", pricePerShot=" + pricePerShot +
                 '}';
     }
 }
