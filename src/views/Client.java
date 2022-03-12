@@ -22,8 +22,12 @@ public class Client {
         coffeeGroupList.add(nayarita);
         coffeeGroupList.add(catuai);
         coffeeGroupList.add(costaRica95);
-        CoffeeBeanManager a1 = new CoffeeBeanManager();
-        a1.displayBeanInfo(coffeeGroupList);
+        //  Khoi tao doi tuong
+        CoffeeBeanManager beanManager = new CoffeeBeanManager();
+
+        beanManager.displayBeanInfo(coffeeGroupList);
+        beanManager.addBean(coffeeGroupList);
+        beanManager.displayBeanInfo(coffeeGroupList);
 
     }
 }
