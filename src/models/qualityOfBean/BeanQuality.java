@@ -45,9 +45,7 @@ public class BeanQuality {
 
     @Override
     public String toString() {
-        return "BeanQuality{" +
-                "quality='" + quality + '\'' +
-                ", pricePerShot=" + pricePerShot +
-                '}';
+        return '\'' + quality + '\'' +
+                ", pricePerShot= " + pricePerShot;
     }
 }

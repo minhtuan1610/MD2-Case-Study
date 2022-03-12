@@ -12,6 +12,9 @@ public class Introgressed extends CoffeeGroup {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Introgressed {" +
+                "name='" + getName() + '\'' +
+                ", quality=" + getQuality() +
+                '}';
     }
 }

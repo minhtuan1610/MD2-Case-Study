@@ -12,6 +12,9 @@ public class F1Hybrids extends CoffeeGroup {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "F1Hybrids {" +
+                "name='" + getName() + '\'' +
+                ", quality=" + getQuality() +
+                '}';
     }
 }

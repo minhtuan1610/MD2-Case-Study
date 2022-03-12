@@ -12,6 +12,9 @@ public class BourbonTypicaGroup extends CoffeeGroup {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "BourbonTypicaGroup {" +
+                "name='" + getName() + '\'' +
+                ", quality=" + getQuality() +
+                '}';
     }
 }

@@ -32,7 +32,7 @@ public class CoffeeGroup {
 
     @Override
     public String toString() {
-        return "CoffeeGroup{" +
+        return "CoffeeGroup {" +
                 "name='" + name + '\'' +
                 ", quality=" + quality +
                 '}';

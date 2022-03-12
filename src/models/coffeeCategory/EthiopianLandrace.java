@@ -12,6 +12,9 @@ public class EthiopianLandrace extends CoffeeGroup {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "EthiopianLandrace {" +
+                "name='" + getName() + '\'' +
+                ", quality=" + getQuality() +
+                '}';
     }
 }

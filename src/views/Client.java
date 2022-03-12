@@ -1,5 +1,6 @@
 package views;
 
+import controllers.CoffeeBeanManager;
 import controllers.DataInput;
 import models.bill.Bill;
 import models.bill.Items;
@@ -21,25 +22,8 @@ public class Client {
         coffeeGroupList.add(nayarita);
         coffeeGroupList.add(catuai);
         coffeeGroupList.add(costaRica95);
+        CoffeeBeanManager a1 = new CoffeeBeanManager();
+        a1.displayBeanInfo(coffeeGroupList);
 
-        DataInput dataInput = new DataInput();
-        System.out.println("Nhap so luong roasted coffee:");
-        double amount = dataInput.getAmountOfRoastedCoffee();
-        System.out.println("Nhap so luong shot:");
-        double shot = dataInput.getNumberOfCoffeeShot();
-        System.out.println("Tien roasted coffee:");
-        Items items = new Items(geisha, amount, shot);
-        double b = items.getPriceByRoastedCoffee();
-        System.out.println(b);
-        System.out.println("Tien coffee shot:");
-        double c = items.getPriceByCoffeeShot();
-        System.out.println(c);
-        Bill bill = new Bill(items);
-        bill.setLocalDate(LocalDate.now());
-        LocalDate localDate = bill.getLocalDate();
-        System.out.println("Ngay xuat bill: " + localDate);
-        System.out.println("Tong so tien trong bill la:");
-        double d = bill.getItemsPrice();
-        System.out.println(d);
     }
 }
