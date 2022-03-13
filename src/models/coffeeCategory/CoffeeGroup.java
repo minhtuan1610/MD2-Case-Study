@@ -4,7 +4,7 @@ import models.qualityOfBean.BeanQuality;
 
 import java.io.Serializable;
 
-public class CoffeeGroup {
+public class CoffeeGroup implements Serializable {
     private String name;
     private BeanQuality quality;
 

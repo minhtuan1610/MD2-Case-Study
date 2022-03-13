@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CoffeeBeanManager {
-    public static LinkedList<CoffeeGroup> savedCoffeeList = new LinkedList<>();
+    public static BeanFromBinaryFile beanReader = new BeanFromBinaryFile();
+    public static LinkedList<CoffeeGroup> savedCoffeeList = beanReader.readFile();
+    //    public static LinkedList<CoffeeGroup> savedCoffeeList = new LinkedList<>();
     DataInput dataInput = new DataInput();
 
     public CoffeeBeanManager() {
