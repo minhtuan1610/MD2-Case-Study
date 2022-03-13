@@ -7,9 +7,6 @@ public class Items {
     private double amount;              //  lay so luong cua tung loai coffee
     private double shot;                //  lay so luong shot tuong ung tung loai coffee
 
-    public Items() {
-    }
-
     public Items(CoffeeGroup coffeeGroup, double amount, double shot) {
         this.coffeeGroup = coffeeGroup;
         this.amount = amount;

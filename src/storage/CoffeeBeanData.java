@@ -3,10 +3,11 @@ package storage;
 import models.coffeeCategory.CoffeeGroup;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 public interface CoffeeBeanData {
-    List<CoffeeGroup> readFile();
+    LinkedList<CoffeeGroup> readFile();
 
-    void writeFile(List<CoffeeGroup> savedList) throws IOException;
+    void writeFile(LinkedList<CoffeeGroup> savedList);
 }

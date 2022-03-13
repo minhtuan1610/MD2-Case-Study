@@ -1,5 +1,6 @@
 package storage;
 
+import controllers.CoffeeBeanManager;
 import models.coffeeCategory.CoffeeGroup;
 
 import java.io.*;
@@ -10,41 +11,53 @@ public class BeanFromBinaryFile implements CoffeeBeanData {
     public static final String SAVE_PATH = "src/storage/bean.dat";
 
     @Override
-    public List<CoffeeGroup> readFile() {
+    public LinkedList<CoffeeGroup> readFile() {
+        FileInputStream fis = null;
+        ObjectInputStream ois;
         try {
-            FileInputStream fis = new FileInputStream(SAVE_PATH);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            Object result = ois.readObject();
-            List<CoffeeGroup> coffeeGroupList = (List<CoffeeGroup>) result;
-            fis.close();
-            ois.close();
-            return coffeeGroupList;
+            fis = new FileInputStream(SAVE_PATH);
         } catch (FileNotFoundException e) {
             System.err.println("File is not initialized");
+            try {
+                fis.close();
+            } catch (IOException er) {
+                er.printStackTrace();
+            }
+            return new LinkedList<>();
+        }
+        try {
+            ois = new ObjectInputStream(fis);
+            Object result = ois.readObject();
+            LinkedList<CoffeeGroup> coffeeGroupList = (LinkedList<CoffeeGroup>) result;
+            ois.close();
+            fis.close();
+            return coffeeGroupList;
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Cannot close file");
+        } catch (ClassNotFoundException er) {
+            er.printStackTrace();
         }
         return new LinkedList<>();
     }
 
     @Override
-    public void writeFile(List<CoffeeGroup> savedList) throws IOException {
+    public void writeFile(LinkedList<CoffeeGroup> savedList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(SAVE_PATH);
+        } catch (FileNotFoundException e) {
+            System.err.println("File is not initialized, created new one");
+            writeFile(savedList);
+            return;
+        }
+        try {
             oos = new ObjectOutputStream(fos);
             oos.writeObject(savedList);
-        } catch (FileNotFoundException e) {
-            System.err.println("File is not initialized");
-        } catch (IOException e) {
-            System.err.println("Writing error");
-        } finally {
-            assert oos != null;
             oos.close();
             fos.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 }
