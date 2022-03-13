@@ -5,6 +5,7 @@ import models.qualityOfBean.BeanQuality;
 import storage.BeanFromBinaryFile;
 import storage.CoffeeBeanData;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,10 +76,20 @@ public class CoffeeBeanManager {
 
     public void addBean(CoffeeGroup newBean) {
         savedCoffeeList.add(newBean);
+        try {
+            coffeeBeanData.writeFile(savedCoffeeList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteBeanByName(CoffeeGroup bean) {
         savedCoffeeList.remove(bean);
+        try {
+            coffeeBeanData.writeFile(savedCoffeeList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void searchBeanByChar() {
