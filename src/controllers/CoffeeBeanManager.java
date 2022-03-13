@@ -2,16 +2,21 @@ package controllers;
 
 import models.coffeeCategory.*;
 import models.qualityOfBean.BeanQuality;
+import storage.BeanFromBinaryFile;
+import storage.CoffeeBeanData;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class CoffeeBeanManager {
+    private static CoffeeBeanData coffeeBeanData = new BeanFromBinaryFile();
+    private static List<CoffeeGroup> savedCoffeeList = coffeeBeanData.readFile();
+
     public CoffeeBeanManager() {
     }
 
-    public void displayBeanInfo(List<CoffeeGroup> coffeeGroupList) {
-        for (CoffeeGroup i : coffeeGroupList
+    public void displayBeanInfo() {
+        for (CoffeeGroup i : savedCoffeeList
         ) {
             System.out.println(i);
         }
@@ -68,20 +73,21 @@ public class CoffeeBeanManager {
         return beanInfo;
     }
 
-    public void addBean(List<CoffeeGroup> coffeeGroupList) {
-        CoffeeGroup newBean = setBeanInfo();
-        coffeeGroupList.add(newBean);
+    public void addBean(CoffeeGroup newBean) {
+        savedCoffeeList.add(newBean);
+    }
+
+    public void deleteBeanByName(CoffeeGroup bean) {
+        savedCoffeeList.remove(bean);
+    }
+
+    public void searchBeanByChar() {
+
     }
 
     public void editBeanByName() {
 
     }
 
-    public void deleteBeanByName() {
 
-    }
-
-    public void searchBeanByChar() {
-
-    }
 }
