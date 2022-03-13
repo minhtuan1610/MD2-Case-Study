@@ -9,7 +9,7 @@ public class DataInput {
     public DataInput() {
     }
 
-    public CoffeeGroup setBeanInfo() {
+    public CoffeeGroup setNewBeanInfo() {
         CoffeeGroup beanInfo = null;
         BeanQuality beanQuality = null;
         System.out.println("Enter name of coffee bean:");

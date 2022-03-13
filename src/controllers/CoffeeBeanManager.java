@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CoffeeBeanManager {
-    private static CoffeeBeanData coffeeBeanData = new BeanFromBinaryFile();
-    public static LinkedList<CoffeeGroup> savedCoffeeList = coffeeBeanData.readFile();
+    public static LinkedList<CoffeeGroup> savedCoffeeList = new LinkedList<>();
+    DataInput dataInput = new DataInput();
 
     public CoffeeBeanManager() {
     }
@@ -47,8 +47,35 @@ public class CoffeeBeanManager {
 
     }
 
-    public void editBeanByName() {
-
+    public void editBeanByName(String name) {
+        for (CoffeeGroup i : savedCoffeeList
+        ) {
+            if (i.getName().equals(name)) {
+                String newName = dataInput.getNameInputFromUser();
+                i.setName(newName);
+                System.out.println("Which new quality of the bean do you choose?");
+                System.out.println("1. Exceptional");
+                System.out.println("2. Very good");
+                System.out.println("3. Good");
+                System.out.println("4. Low");
+                Scanner inputNumberQuality = new Scanner(System.in);
+                int numberQuality = inputNumberQuality.nextInt();
+                switch (numberQuality) {
+                    case 1:
+                        i.setQuality(BeanQuality.EXCEPTIONAL);
+                        break;
+                    case 2:
+                        i.setQuality(BeanQuality.VERY_GOOD);
+                        break;
+                    case 3:
+                        i.setQuality(BeanQuality.GOOD);
+                        break;
+                    case 4:
+                        i.setQuality(BeanQuality.LOW);
+                        break;
+                }
+            }
+        }
     }
 
 

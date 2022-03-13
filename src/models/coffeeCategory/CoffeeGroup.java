@@ -2,6 +2,8 @@ package models.coffeeCategory;
 
 import models.qualityOfBean.BeanQuality;
 
+import java.io.Serializable;
+
 public class CoffeeGroup {
     private String name;
     private BeanQuality quality;
