@@ -66,6 +66,11 @@ public class DataInput {
         return nameInput;
     }
 
+    public void getNothingInputFromUser() {
+        Scanner inputNameBean = new Scanner(System.in);
+        String somethingInput = inputNameBean.nextLine();// Dừng luồng chạy, user nhập, để tăng trải nghiệm người dùng
+    }
+
     public double getAmountOfRoastedCoffee() {
         Scanner inputAmount = new Scanner(System.in);
         double amountRoastedCoffee;

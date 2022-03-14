@@ -1,7 +1,12 @@
 package controllers;
 
 public class DataOutput {
-    public static void displayMenu() {
+    DataInput dataInput = new DataInput();
+
+    public DataOutput() {
+    }
+
+    public void displayMenu() {
         System.out.println("Menu");
         System.out.println("1. Display the list of coffee beans");
         System.out.println("2. Add new bean");
@@ -12,4 +17,8 @@ public class DataOutput {
         System.out.println("0. Exit");
     }
 
+    public void backToMenu() {
+        System.out.println("Type 'back' to the menu");
+        dataInput.getNothingInputFromUser();
+    }
 }
