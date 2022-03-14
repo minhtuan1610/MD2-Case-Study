@@ -51,6 +51,7 @@ public class Client {
                 case 2:
                     newBean = dataInput.setNewBeanInfo();
                     beanManager.addBean(newBean);
+                    break;
                 case 3:
                     nameInputFromUser = dataInput.getNameInputFromUser();
                     beanManager.editBeanByName(nameInputFromUser);
