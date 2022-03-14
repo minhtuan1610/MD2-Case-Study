@@ -15,6 +15,7 @@ public class DataOutput {
         System.out.println("5. Print Bill");
         System.out.println("6. Save bean & bill");
         System.out.println("0. Exit");
+        System.out.println("Enter the corresponding number:");
     }
 
     public void backToMenu() {
