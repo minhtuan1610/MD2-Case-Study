@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public interface CoffeeBeanData {
-    LinkedList<CoffeeGroup> readFile();
+    LinkedList<CoffeeGroup> readFile(String path);
 
-    void writeFile(LinkedList<CoffeeGroup> savedList);
+    void writeFile(String path, LinkedList<CoffeeGroup> savedList);
 }

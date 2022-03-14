@@ -1,6 +1,8 @@
 package models.qualityOfBean;
 
-public class BeanQuality {
+import java.io.Serializable;
+
+public class BeanQuality implements Serializable {
     public static final BeanQuality EXCEPTIONAL = new BeanQuality("exceptional", 100000.0, 500000.0);
     public static final BeanQuality VERY_GOOD = new BeanQuality("very good", 75000.0, 400000.0);
     public static final BeanQuality GOOD = new BeanQuality("good", 70000.0, 300000.0);

@@ -1,23 +1,23 @@
 package storage;
 
-import controllers.CoffeeBeanManager;
 import models.coffeeCategory.CoffeeGroup;
 
 import java.io.*;
 import java.util.LinkedList;
 
-public class BeanFromBinaryFile implements CoffeeBeanData {
-    public static final String SAVE_PATH = "src/storage/bean.dat";
+public class ItemsFromBinaryFile implements CoffeeBeanData {
+    public static final String SAVE_PATH_BEAN = "src/storage/bean.dat";
+    public static final String SAVE_PATH_BILL = "src/storage/bill.dat";
 
     @Override
-    public LinkedList<CoffeeGroup> readFile() {
+    public LinkedList<CoffeeGroup> readFile(String path) {
         //  Mục đích đọc file để lấy ra mảng dữ liệu đã được lưu từ trước để thao tác, nếu không lấy được thì sẽ tạo
         //  ra một mảng mới để thao tác.
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         Object result = null;
         try {
-            fis = new FileInputStream(SAVE_PATH);
+            fis = new FileInputStream(path);
         } catch (FileNotFoundException e) {
             System.err.println("File not found");
             return new LinkedList<>(); //   Không có file, cần một mảng để thao tác trên nó => phải return ra mảng mới
@@ -47,8 +47,8 @@ public class BeanFromBinaryFile implements CoffeeBeanData {
     }
 
     @Override
-    public void writeFile(LinkedList<CoffeeGroup> savedList) {
-        FileOutputStream fos = null;
+    public void writeFile(String path, LinkedList<CoffeeGroup> savedList) {
+        /*FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(SAVE_PATH);
@@ -64,17 +64,17 @@ public class BeanFromBinaryFile implements CoffeeBeanData {
             fos.close();
         } catch (IOException ex) {
             ex.printStackTrace();
-        }
+        }*/
 
-        /*FileOutputStream fos = null;
+        FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
-            fos = new FileOutputStream(SAVE_PATH);
+            fos = new FileOutputStream(path);
         } catch (FileNotFoundException e) {
             System.err.println("Cannot find the file, will create new file"); //    Khi nhảy vào this catch, dòng 69
             // không được thực hiện, fos = null. Nếu tiếp tục thực hiện các khối lệnh bên dưới mà sử dụng fos -> sẽ
             // gây ra lỗi null pointer (Lỗi thực hiện thao tác trên null) -> cần phải return.
-            writeFile(savedList); //    Vẫn muốn thực hiện ghi file -> phải gọi lại ghi file.
+            writeFile(path, savedList); //    Vẫn muốn thực hiện ghi file -> phải gọi lại ghi file.
             return;
         }
         try {
@@ -94,6 +94,6 @@ public class BeanFromBinaryFile implements CoffeeBeanData {
             } catch (IOException e) {
                 System.err.println("Something wrong, cannot write file (number error 3)");
             }
-        }*/
+        }
     }
 }

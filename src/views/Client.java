@@ -1,11 +1,13 @@
 package views;
 
+import controllers.BillManager;
 import controllers.CoffeeBeanManager;
 import controllers.DataInput;
 import models.bill.Bill;
 import models.bill.Items;
 import models.coffeeCategory.*;
 import models.qualityOfBean.BeanQuality;
+import storage.ItemsFromBinaryFile;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 
 public class Client {
     public static LinkedList<CoffeeGroup> coffeeGroupList = CoffeeBeanManager.savedCoffeeList;
+    public static LinkedList<CoffeeGroup> billList = BillManager.savedBillList;
 
     public static void main(String[] args) {
         final int MENU_CHOICE = -1;
@@ -30,6 +33,7 @@ public class Client {
         CoffeeGroup newBean;
         CoffeeGroup beanTarget;
         DataInput dataInput = new DataInput();
+        ItemsFromBinaryFile IOtool = new ItemsFromBinaryFile();
         String nameInputFromUser;
         Items items;
         Bill bill;
@@ -41,7 +45,8 @@ public class Client {
             System.out.println("3. Edit bean");
             System.out.println("4. Delete bean");
             System.out.println("5. Print Bill");
-            System.out.println("0. Save & Exit");
+            System.out.println("6. Save bean & bill");
+            System.out.println("0. Exit");
             Scanner inputChoice = new Scanner(System.in);
             choice = inputChoice.nextInt();
             switch (choice) {
@@ -75,8 +80,11 @@ public class Client {
                     System.out.println("Date: " + bill.getLocalDate());
                     System.out.println("Total: " + bill.getItemsPrice() + " VND");
                     break;
+                case 6:
+                    IOtool.writeFile(CoffeeBeanManager.getPath_bean(), coffeeGroupList);
+                    IOtool.writeFile(BillManager.getPath_bill(), billList);
+                    break;
                 case 0:
-
                     System.exit(0);
             }
         }

@@ -2,21 +2,23 @@ package controllers;
 
 import models.coffeeCategory.*;
 import models.qualityOfBean.BeanQuality;
-import storage.BeanFromBinaryFile;
-import storage.CoffeeBeanData;
+import storage.ItemsFromBinaryFile;
 
-import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class CoffeeBeanManager {
-    public static BeanFromBinaryFile beanReader = new BeanFromBinaryFile();
-    public static LinkedList<CoffeeGroup> savedCoffeeList = beanReader.readFile();
+    public static ItemsFromBinaryFile coffeeReader = new ItemsFromBinaryFile();
+    private static String path_bean = ItemsFromBinaryFile.SAVE_PATH_BEAN;
+    public static LinkedList<CoffeeGroup> savedCoffeeList = coffeeReader.readFile(path_bean);
     //    public static LinkedList<CoffeeGroup> savedCoffeeList = new LinkedList<>();
     DataInput dataInput = new DataInput();
 
     public CoffeeBeanManager() {
+    }
+
+    public static String getPath_bean() {
+        return path_bean;
     }
 
     public void displayBeanInfo() {
@@ -79,6 +81,4 @@ public class CoffeeBeanManager {
             }
         }
     }
-
-
 }
